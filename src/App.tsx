@@ -2,7 +2,6 @@ import { ScrollArea } from "@/components/ui/ScrollArea";
 import { VapiButton, vapi } from "./features/Assistant";
 import { MessageList } from "./features/Messages";
 import { useVapi } from "./features/Assistant";
-import { CharacterPreview } from "./features/Character";
 import { useEffect, useRef } from "react";
 
 function App() {
@@ -26,23 +25,26 @@ function App() {
   });
 
   return (
-    <main className="flex h-screen">
-      <CharacterPreview />
+    <main className="flex flex-col h-screen items-center bg-black text-white">
+      <header className="flex justify-between items-center w-full px-6 py-4">
+        <h1 className="text-2xl font-bold">
+          <span className="text-yellow-300">PITCH</span>
+          <span className="text-blue-300">FOR</span>
+          <span className="text-purple-300">ME</span>
+          <span className="text-green-400">BABY</span>
+        </h1>
+      </header>
       <div
         id="card"
-        className="text-slate-950 dark:text-slate-50 w-full relative"
+        className="text-slate-950 dark:text-slate-50 lg:w-3/5 relative"
       >
-        {/* <div
-          id="card-header"
-          className="flex flex-col space-y-1.5 p-6 shadow pb-4"
-        ></div> */}
         <div id="card-content" className="p-6 pt-0">
           <ScrollArea
             ref={scrollAreaRef}
             viewportRef={viewportRef}
-            className="h-[90vh] flex flex-1 p-4"
+            className="h-[85vh] flex flex-1 p-4"
           >
-            <div className="flex flex-1 flex-col min-h-[85vh] justify-end">
+            <div className="flex flex-1 flex-col min-h-[80vh] justify-end">
               <MessageList
                 messages={messages}
                 activeTranscript={activeTranscript}
@@ -61,6 +63,9 @@ function App() {
           />
         </div>
       </div>
+      <footer className="text-center pt-4 text-gray-500 text-sm">
+        © 2025 | Let me get that bread for you 👍
+      </footer>
     </main>
   );
 }
